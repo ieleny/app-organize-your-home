@@ -5,7 +5,7 @@ services:
     container_name: nginx-node
     restart: always
     build:
-      context: app/nginx-node
+      context: nginx-node
       dockerfile: Dockerfile
     volumes:
       - /usr/src/app
