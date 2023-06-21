@@ -1,7 +1,8 @@
 import React from 'react';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import Navbar from './Navbar';
+import { Layout, theme } from 'antd';
 
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 
 const Presentation: React.FC = () => {
     const {
@@ -10,27 +11,8 @@ const Presentation: React.FC = () => {
     
     return (
       <Layout className="layout">
-      <Header style={{ display: 'flex', alignItems: 'center' }}>
-        <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['5']}
-          items={new Array(10).fill(null).map((_, index) => {
-            const key = index + 1;
-            return {
-              key,
-              label: `nav ${key}`,
-            };
-          })}
-        />
-      </Header>
+      <Navbar />
       <Content style={{ padding: '0 50px' }}>
-        <Breadcrumb style={{ margin: '16px 0' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
         <div className="site-layout-content" style={{ background: colorBgContainer }}>
           Content
         </div>
