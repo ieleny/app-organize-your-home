@@ -9,7 +9,7 @@ const Presentation: React.FC = () => {
     } = theme.useToken();
     
     return (
-         <Layout className="layout">
+      <Layout className="layout">
       <Header style={{ display: 'flex', alignItems: 'center' }}>
         <div className="demo-logo" />
         <Menu
