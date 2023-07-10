@@ -10,7 +10,7 @@ const Presentation: React.FC = () => {
     } = theme.useToken();
     
     return (
-      <Layout className="layout">
+    <Layout className="layout">
       <Navbar />
       <Content style={{ padding: '0 50px' }}>
         <div className="site-layout-content" style={{ background: colorBgContainer }}>
