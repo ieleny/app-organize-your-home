@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Navbar from '../pages/Presentation/Navbar';
+import Navbar from 'src/components/Navbar';
 
 test('Menu option Apresentação', () => {
   render(<Navbar />);
