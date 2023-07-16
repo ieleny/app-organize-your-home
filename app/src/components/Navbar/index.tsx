@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import logo from "../../../assets/logo.svg";
+import logo from "src/assets/logo.svg";
 
 import { Layout, Menu } from "antd";
 import type { MenuProps } from "antd";
