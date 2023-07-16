@@ -9,7 +9,6 @@ import { Typography } from "antd";
 const { Title } = Typography;
 const { Header } = Layout;
 
-
 const Navbar: React.FC = () => {
   
   const [current, setCurrent] = useState("apresentacao");
