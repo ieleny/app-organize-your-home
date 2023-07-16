@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <p>PRIMEIRA TELA</p>,
   },
   {
-    path: "/add-material-list",
+    path: "/adicionar-lista",
     element: <ViewMaterialList />,
   },
 ]);

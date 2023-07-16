@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
-import logo from "src/assets/logo.svg";
-
+import { redirect } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import type { MenuProps } from "antd";
 import { Typography } from "antd";
+
+import logo from "src/assets/logo.svg";
 
 const { Title } = Typography;
 const { Header } = Layout;
@@ -13,8 +13,7 @@ const Navbar: React.FC = () => {
   
   const [current, setCurrent] = useState("apresentacao");
 
-  const navBarMenu: MenuProps["items"] = 
-  [
+  const navBarMenu: MenuProps["items"] = [
     {
       label: "Apresentação",
       key: "apresentacao",
@@ -23,11 +22,19 @@ const Navbar: React.FC = () => {
       label: "Contato",
       key: "contato",
     },
+    {
+      label: "Inserir",
+      key: "adicionar-lista",
+    },
+    {
+      label: "Listar",
+      key: "list",
+    },
   ];
   
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
     setCurrent(e.key);
+    redirect(`/${e.key}`);
   };
 
   return (
