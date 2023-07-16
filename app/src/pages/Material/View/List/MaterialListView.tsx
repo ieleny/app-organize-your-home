@@ -6,9 +6,11 @@ const { Title } = Typography;
 const MaterialListView: React.FC = () => {
   return (
     <>
-      <Row justify="center" gutter={[16, 16]}>
+      <Row justify="center">
         <Title>Adicione seus gastos com a construção</Title>
+      </Row>
 
+      <Row justify="center" gutter={[16, 16]}>
         <Col span={14} style={{ padding: "40px 0" }}>
           <Title level={4}>Adicione o nome do produto:</Title>
           <Input size="large" />
