@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import ManagementSystem from "src/pages/Layout/ManagementSystem";
-import ViewMaterialList from "src/pages/Material/View/List/MaterialListView";
+import ViewMaterialList from "src/pages/Presentation/Material/View/List/MaterialListView";
 
 function App() {
   return (
