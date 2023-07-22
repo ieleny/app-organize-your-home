@@ -8,7 +8,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<ManagementSystem />}>
-          <Route path="/adicionar-lista" element={<ViewMaterialList />} />
+          <Route path="adicionar-lista" element={<ViewMaterialList />} />
+          <Route path="apresentacao" element={<ViewMaterialList />} />
+          <Route path="contato" element={<ViewMaterialList />} />
+          <Route path="lista" element={<ViewMaterialList />} />
         </Route>
       </Routes>
     </BrowserRouter>
