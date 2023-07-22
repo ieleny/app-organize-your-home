@@ -12,7 +12,7 @@ const { Header } = Layout;
 const Navbar: React.FC = () => {
   
   const navigate = useNavigate();
-  const [current, setCurrent] = useState("/apresentacao");
+  const [current, setCurrent] = useState<string>("/apresentacao");
 
   const navBarMenu: MenuProps["items"] = [
     {
@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const atualLink = window.location.pathname;
     setCurrent(atualLink);
-  });
+  }, []);
 
   return (
     <Header style={{ display: "flex", alignItems: "center" }}>
