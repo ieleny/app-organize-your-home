@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { redirect } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import type { MenuProps } from "antd";
 import { Typography } from "antd";
@@ -11,31 +11,37 @@ const { Header } = Layout;
 
 const Navbar: React.FC = () => {
   
-  const [current, setCurrent] = useState("apresentacao");
+  const navigate = useNavigate();
+  const [current, setCurrent] = useState("/apresentacao");
 
   const navBarMenu: MenuProps["items"] = [
     {
       label: "Apresentação",
-      key: "apresentacao",
+      key: "/apresentacao",
     },
     {
       label: "Contato",
-      key: "contato",
+      key: "/contato",
     },
     {
       label: "Inserir",
-      key: "adicionar-lista",
+      key: "/adicionar-lista",
     },
     {
       label: "Listar",
-      key: "list",
+      key: "/lista",
     },
   ];
   
   const onClick: MenuProps["onClick"] = (e) => {
     setCurrent(e.key);
-    redirect(`/${e.key}`);
+    navigate(e.key);
   };
+
+  useEffect(() => {
+    const atualLink = window.location.pathname;
+    setCurrent(atualLink);
+  });
 
   return (
     <Header style={{ display: "flex", alignItems: "center" }}>
