@@ -12,7 +12,7 @@ const { Header } = Layout;
 const Navbar: React.FC = () => {
   
   const navigate = useNavigate();
-  const [current, setCurrent] = useState<string>("/apresentacao");
+  const [current, setCurrent] = useState<string>("");
 
   const navBarMenu: MenuProps["items"] = [
     {
@@ -40,7 +40,12 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const atualLink = window.location.pathname;
-    setCurrent(atualLink);
+
+    if (atualLink) {
+      setCurrent(atualLink);
+    } else {
+      setCurrent("/apresentacao");
+    } 
   }, []);
 
   return (

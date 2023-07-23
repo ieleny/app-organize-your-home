@@ -6,6 +6,7 @@ Application to help organize what do you need buy for your home
 - Ant Design: https://ant.design/components/overview/
 - React
 - Typescript
+- Jotai
 
 # Execute docker build
 
@@ -15,3 +16,6 @@ Inside the docker folder execute command:
 ```
 
 # Architeture - MVVM
+
+## Links
+https://learn.microsoft.com/pt-br/windows/uwp/data-binding/data-binding-and-mvvm

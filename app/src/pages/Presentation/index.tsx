@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from "src/components/Navbar";
-import ViewMaterialList from 'src/pages/Presentation/Material/View/List/MaterialListView';
+import ViewMaterialList from 'src/pages/Presentation/Material/View/Add/MaterialAddView';
 
 import { Layout, theme } from 'antd';
 
