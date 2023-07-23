@@ -1,17 +1,21 @@
 
 import { atom, createStore } from "jotai";
 
+type AppProps = {
+  values: string[];
+};
+
 export class MaterialModel {
   myStore = createStore();
-  material = atom(["", "", ""]);
+  material = atom(["teste"]);
 
-  addMaterial(values: [string, string, string]) {
+  addMaterial({ values }: AppProps) {
     this.myStore.set(this.material, values);
   }
 
   listMaterial() {
-    console.log("material", this.material);
-    console.log("myStore", this.myStore);
+    console.warn("material", this.material);
+    console.warn("myStore", this.myStore.get(this.material));
 
     return this.myStore.get(this.material);
   }

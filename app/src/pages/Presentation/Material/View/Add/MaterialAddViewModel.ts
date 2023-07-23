@@ -4,10 +4,10 @@ export default class ListViewModel {
   materialModel = new MaterialModel();
 
   addMaterialList() {
-    this.materialModel.addMaterial(["Tokyo", "Kyoto", "Osaka"]);
+    this.materialModel.addMaterial({ values: ["Tokyo", "Kyoto", "Osaka"] });
   }
 
   listMaterial() {
-    this.materialModel.listMaterial();
+    return this.materialModel.listMaterial();
   }
 }

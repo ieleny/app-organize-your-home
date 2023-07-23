@@ -10,8 +10,8 @@ const MaterialAddListView: React.FC = () => {
   const listViewModel = new ListViewModel();
 
   const saveMaterial = () => {
-    // listViewModel.addMaterialList();
-    console.warn("saveMaterial");
+    listViewModel.addMaterialList();
+
     console.warn(listViewModel.listMaterial());
   };
 
