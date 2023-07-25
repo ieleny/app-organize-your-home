@@ -1,40 +1,13 @@
 import React from "react";
 import { Typography, Row, Input, Col, Button, InputNumber } from "antd";
 
-import ListViewModel from './MaterialAddViewModel';
+import MaterialAddViewModel from "./MaterialAddViewModel";
 
 const { Title } = Typography;
 
 const MaterialAddListView: React.FC = () => {
 
-  const listViewModel = new ListViewModel();
-  let quantityBought: number = 0;
-  let productName: string;
-
-  const saveMaterial = () => {
-
-    listViewModel.addMaterialList({
-      materiais: { quantityBought, productName },
-    });
-
-    console.warn("listMaterial", listViewModel.listMaterial());
-  };
-
-  const saveInputNumber = (value: number | null) => {
-    if (value) {
-      quantityBought = value; 
-    }
-  };
-
-  const saveProductName = (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    let productNameChange = event;
-
-    if (productNameChange) {
-      productName = productNameChange.target.value;
-    }
-  };
+  const materialAddViewModel = new MaterialAddViewModel();
 
   return (
     <>
@@ -45,7 +18,10 @@ const MaterialAddListView: React.FC = () => {
       <Row justify="center" gutter={[16, 16]}>
         <Col span={14} style={{ padding: "40px 0" }}>
           <Title level={4}>Adicione o nome do produto:</Title>
-          <Input onChange={saveProductName} size="large" />
+          <Input
+            onChange={materialAddViewModel.onchangeProductName}
+            size="large"
+          />
         </Col>
       </Row>
 
@@ -53,7 +29,7 @@ const MaterialAddListView: React.FC = () => {
         <Col span={7}>
           <Title level={4}>Quantidade comprada:</Title>
           <InputNumber
-            onChange={saveInputNumber}
+            onChange={materialAddViewModel.onchangeQuantityBought}
             size="large"
             min={1}
             max={10}
@@ -65,6 +41,7 @@ const MaterialAddListView: React.FC = () => {
         <Col span={7}>
           <Title level={4}>Valor do produto (UND): </Title>
           <InputNumber<string>
+            onChange={materialAddViewModel.onchangePriceUnd}
             size="large"
             defaultValue="1"
             min="0"
@@ -77,7 +54,10 @@ const MaterialAddListView: React.FC = () => {
       </Row>
 
       <Row justify="center" style={{ padding: "20px 0" }}>
-        <Button type="primary" onClick={() => saveMaterial()}>
+        <Button
+          type="primary"
+          onClick={() => materialAddViewModel.saveMaterial()}
+        >
           Salvar
         </Button>
       </Row>

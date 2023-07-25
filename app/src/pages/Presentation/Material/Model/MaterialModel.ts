@@ -1,23 +1,29 @@
-
-import { atom, createStore } from "jotai";
-import { MaterialProps } from "src/types/material";
-
-type AppProps = {
-  materiais: { quantityBought: number };
-};
-
 export class MaterialModel {
-  myStore = createStore();
-  materiais = atom({ quantityBought: 0 });
+  private _quantityBought: number = 0;
+  private _productName: string = "";
+  private _priceUnd: string = "1.0000";
 
-  addMaterial({ materiais }: MaterialProps) {
-    this.myStore.set(this.materiais, materiais);
+  public get productName() {
+    return this._productName;
   }
 
-  listMaterial() {
-    console.warn("material", this.materiais);
-    console.warn("myStore", this.myStore.get(this.materiais));
+  public set productName(productName: string) {
+    this._productName = productName;
+  }
 
-    return this.myStore.get(this.materiais);
+  public get quantityBought() {
+    return this._quantityBought;
+  }
+
+  public set quantityBought(quantityBought: number) {
+    this._quantityBought = quantityBought;
+  }
+
+  public get priceUnd() {
+    return this._priceUnd;
+  }
+
+  public set priceUnd(priceUnd: string) {
+    this._priceUnd = priceUnd;
   }
 }

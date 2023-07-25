@@ -1,3 +1,7 @@
 export type MaterialProps = {
-  materiais: { productName: string, quantityBought: number};
+  materiais: {
+    productName: string;
+    quantityBought: number;
+    priceUnd: string;
+  };
 };
