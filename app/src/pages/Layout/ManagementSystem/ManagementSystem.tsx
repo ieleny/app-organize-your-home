@@ -25,7 +25,7 @@ const ManagementSystem: React.FC = () => {
       <Content>
         <div
           className="site-layout-content"
-          style={{ background: colorBgContainer, padding: "0 50px" }}
+          style={{ background: colorBgContainer, padding: "0 50px",  minHeight: '86vh' }}
         >
           <Outlet />
         </div>
