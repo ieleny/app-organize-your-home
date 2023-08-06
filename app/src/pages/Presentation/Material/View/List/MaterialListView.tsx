@@ -1,7 +1,9 @@
 import React from "react";
-import { Typography, Table, Row, Col } from "antd";
+import { Typography, Table, Row, Col, Space } from "antd";
+import type { ColumnsType } from "antd/es/table";
 
 import MaterialListViewModel from "./MaterialListViewModel";
+import { IMaterial } from "src/interface/materialInterface";
 
 const { Title } = Typography;
 
@@ -9,34 +11,45 @@ const MaterialListView: React.FC = () => {
 
   const materialListViewModel = new MaterialListViewModel();
 
-  console.log(materialListViewModel.listMaterial());
-
-  const dataSource = [
+  const columns: ColumnsType<IMaterial> = [
     {
-      key: "1",
-      name: "Mike",
-      age: 32,
-      address: "10 Downing Street",
+      title: "Nome material",
+      dataIndex: "productName",
+      key: "productName",
     },
     {
-      key: "2",
-      name: "John",
-      age: 42,
-      address: "10 Downing Street",
+      title: "Quantidade comprada",
+      dataIndex: "quantityBought",
+      key: "quantityBought",
+    },
+    {
+      title: "Preço da unidade",
+      dataIndex: "priceUnd",
+      key: "priceUnd",
+    },
+    {
+      title: "Ações",
+      key: "action",
+      render: (_, record) => (
+        <Space size="middle">
+          <a>Editar</a>
+          <a>Delete</a>
+        </Space>
+      ),
     },
   ];
 
   return (
     <>
       <Row justify="center">
-        <Title>Lista do seus gastos</Title>
+        <Title>Lista dos seus gastos</Title>
       </Row>
 
-      <Row justify="center" gutter={[16, 16]}>
-        <Col span={14} style={{ padding: "40px 0" }}>
+      <Row justify="center">
+        <Col span={14}>
           <Table
             dataSource={materialListViewModel.listMaterial()}
-            columns={materialListViewModel.columns}
+            columns={columns}
           />
         </Col>
       </Row>
