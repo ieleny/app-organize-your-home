@@ -1,36 +1,32 @@
 import { MaterialModel } from "src/pages/Presentation/Material/Model/MaterialModel";
 import { MaterialProps } from "src/types/material";
-import { MaterialStore } from "src/pages/Presentation/Material/Store/MaterialStore";
+import { MaterialController } from "src/pages/Presentation/Material/Store/MaterialController";
 
 export default class MaterialAddViewModel {
   private materialModel = new MaterialModel();
-  private materialStore = new MaterialStore();
+  private materialController = new MaterialController();
 
-  addMaterialList({ materiais }: MaterialProps) {
-    this.materialStore.addMaterial({ materiais });
+  public addMaterialList({ materiais }: MaterialProps) {
+    this.materialController.addMaterial({ materiais });
   }
 
-  listMaterial() {
-    return this.materialStore.listMaterial();
-  }
-
-  saveMaterial = () => {
+  public saveMaterial = () => {
     const quantityBought = this.materialModel.quantityBought;
     const productName = this.materialModel.productName;
     const priceUnd = this.materialModel.priceUnd;
 
     this.addMaterialList({
-      materiais: { quantityBought, productName, priceUnd },
+      materiais: { key: 1, quantityBought, productName, priceUnd },
     });
   };
 
-  onchangeQuantityBought = (quantityBought: number | null) => {
+  public onchangeQuantityBought = (quantityBought: number | null) => {
     if (quantityBought) {
       this.materialModel.quantityBought = quantityBought;
     }
   };
 
-  onchangeProductName = (
+  public onchangeProductName = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const productNameChange = event;
@@ -40,9 +36,7 @@ export default class MaterialAddViewModel {
     }
   };
 
-  onchangePriceUnd = (
-    priceUnd: string | null
-  ) => {
+  public onchangePriceUnd = (priceUnd: string | null) => {
     if (priceUnd) {
       this.materialModel.priceUnd = priceUnd;
     }
