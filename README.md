@@ -24,5 +24,9 @@ https://www.tutorialspoint.com/mvvm/mvvm_responsibilities.htm#:%7E:text=ViewMode
 
 ## Jotai
 
+Manegement state, documentation: https://jotai.org/docs/core/store
+
 # Links
 https://dev.to/franciscomendes10866/jotai-state-manager-5c07
+https://www.youtube.com/watch?v=yJeamGjFNqQ&ab_channel=CoderOne
+https://www.youtube.com/watch?v=gg31JTZmFUw&ab_channel=JackHerrington
