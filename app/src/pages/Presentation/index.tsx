@@ -14,7 +14,7 @@ const Presentation: React.FC = () => {
     return (
       <Layout className="layout">
         <Navbar />
-        <Content style={{ padding: "0 50px" }}>
+        <Content>
           <div
             className="site-layout-content"
             style={{ background: colorBgContainer }}

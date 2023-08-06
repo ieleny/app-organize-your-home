@@ -8,7 +8,7 @@ const { Title } = Typography;
 const MaterialAddListView: React.FC = () => {
 
   const materialAddViewModel = new MaterialAddViewModel();
-
+ 
   return (
     <>
       <Row justify="center">
@@ -16,7 +16,7 @@ const MaterialAddListView: React.FC = () => {
       </Row>
 
       <Row justify="center" gutter={[16, 16]}>
-        <Col span={14} style={{ padding: "40px 0" }}>
+        <Col span={14}>
           <Title level={4}>Adicione o nome do produto:</Title>
           <Input
             onChange={materialAddViewModel.onchangeProductName}
@@ -53,7 +53,7 @@ const MaterialAddListView: React.FC = () => {
         </Col>
       </Row>
 
-      <Row justify="center" style={{ padding: "20px 0" }}>
+      <Row justify="center">
         <Button
           type="primary"
           onClick={() => materialAddViewModel.saveMaterial()}
