@@ -19,3 +19,10 @@ Inside the docker folder execute command:
 
 ## Links
 https://learn.microsoft.com/pt-br/windows/uwp/data-binding/data-binding-and-mvvm
+https://github.com/RaresAil/cra-template-typescript-mvvm
+https://www.tutorialspoint.com/mvvm/mvvm_responsibilities.htm#:%7E:text=ViewModel%20Responsibilities,data%20and%20change%20the%20data
+
+## Jotai
+
+# Links
+https://dev.to/franciscomendes10866/jotai-state-manager-5c07
