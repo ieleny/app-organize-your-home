@@ -1,9 +1,5 @@
 import { atom, createStore } from "jotai";
+import { IMaterial } from "src/interface/materialInterface";
 
 export const store = createStore();
-export const MateriaisAtom = atom({
-  key: 1,
-  productName: "Test",
-  quantityBought: 0,
-  priceUnd: "0.00",
-});
+export const MateriaisAtom = atom<IMaterial[]>([]);
