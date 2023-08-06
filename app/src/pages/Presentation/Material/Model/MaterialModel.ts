@@ -1,7 +1,8 @@
 export class MaterialModel {
   private _quantityBought: number = 0;
   private _productName: string = "";
-  private _priceUnd: string = "1.0000";
+  private _priceUnd: string = "1.0";
+  public static COUNT_MATERIAL: number = 0;
 
   public get productName() {
     return this._productName;
@@ -25,5 +26,9 @@ export class MaterialModel {
 
   public set priceUnd(priceUnd: string) {
     this._priceUnd = priceUnd;
+  }
+
+  public amountMaterial() {
+    return MaterialModel.COUNT_MATERIAL++;
   }
 }
