@@ -1,12 +1,12 @@
 import { MaterialModel } from "src/pages/Presentation/Material/Model/MaterialModel";
-import { MaterialProps } from "src/types/material";
+import { MaterialType } from "src/types/material";
 import { MaterialController } from "src/pages/Presentation/Material/Store/MaterialController";
 
 export default class MaterialAddViewModel {
   private materialModel = new MaterialModel();
   private materialController = new MaterialController();
 
-  public addMaterialList({ materiais }: MaterialProps) {
+  public addMaterialList({ materiais }: MaterialType) {
     this.materialController.addMaterial({ materiais });
   }
 
@@ -14,9 +14,10 @@ export default class MaterialAddViewModel {
     const quantityBought = this.materialModel.quantityBought;
     const productName = this.materialModel.productName;
     const priceUnd = this.materialModel.priceUnd;
+    const countMaterial = this.materialModel.amountMaterial();
 
     this.addMaterialList({
-      materiais: { key: 1, quantityBought, productName, priceUnd },
+      materiais: { key: countMaterial, quantityBought, productName, priceUnd },
     });
   };
 

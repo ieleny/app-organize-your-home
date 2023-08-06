@@ -1,4 +1,4 @@
-export type MaterialProps = {
+export type MaterialType = {
   materiais: {
     key: number,
     productName: string;
