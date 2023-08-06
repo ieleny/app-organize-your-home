@@ -1,23 +1,33 @@
+import React, { useEffect } from "react";
 import { Layout, theme } from "antd";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate,useLocation  } from "react-router-dom";
 import Navbar from "src/components/Navbar";
 
 const { Content, Footer } = Layout;
 
 const ManagementSystem: React.FC = () => {
-    const {
-        token: { colorBgContainer },
-    } = theme.useToken();
+  const {
+      token: { colorBgContainer },
+  } = theme.useToken();
+  const navigate = useNavigate();
+  let location = useLocation();
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      navigate("/adicionar-lista");
+      navigate("/lista");
+    }
+  }, [navigate, location]);
 
   return (
     <Layout className="layout">
       <Navbar />
-      <Content style={{ padding: "0 50px" }}>
+      <Content>
         <div
           className="site-layout-content"
-          style={{ background: colorBgContainer }}
+          style={{ background: colorBgContainer, padding: "0 50px" }}
         >
-          <Outlet/>
+          <Outlet />
         </div>
       </Content>
       <Footer style={{ textAlign: "center" }}>
