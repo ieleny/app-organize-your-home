@@ -1,5 +1,13 @@
 import React from "react";
-import { Typography, Row, Input, Col, Button, InputNumber } from "antd";
+import {
+  Typography,
+  Row,
+  Input,
+  Col,
+  Button,
+  InputNumber,
+  Divider,
+} from "antd";
 
 import MaterialAddViewModel from "./MaterialAddViewModel";
 
@@ -32,7 +40,6 @@ const MaterialAddListView: React.FC = () => {
             onChange={materialAddViewModel.onchangeQuantityBought}
             size="large"
             min={1}
-            max={10}
             defaultValue={1}
             style={{ width: "100%" }}
           />
@@ -45,21 +52,24 @@ const MaterialAddListView: React.FC = () => {
             size="large"
             defaultValue="1"
             min="0"
-            max="10"
-            step="0.00000000000001"
+            step="0.01"
             stringMode
             style={{ width: "100%" }}
           />
         </Col>
       </Row>
 
-      <Row justify="center">
-        <Button
-          type="primary"
-          onClick={() => materialAddViewModel.saveMaterial()}
-        >
-          Salvar
-        </Button>
+      <Divider orientation="center"></Divider>
+
+      <Row justify="space-around" gutter={[40, 40]} align="bottom">
+        <Col>
+          <Button
+            type="primary"
+            onClick={() => materialAddViewModel.saveMaterial()}
+          >
+            Salvar
+          </Button>
+        </Col>
       </Row>
     </>
   );
