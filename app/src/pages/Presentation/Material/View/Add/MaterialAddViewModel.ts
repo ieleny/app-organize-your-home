@@ -7,7 +7,11 @@ export default class MaterialAddViewModel {
   private materialController = new MaterialController();
 
   public addMaterialList({ materiais }: MaterialType) {
-    this.materialController.addMaterial({ materiais });
+    try {
+      this.materialController.addMaterial({ materiais });
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   public saveMaterial = () => {

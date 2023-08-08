@@ -7,6 +7,7 @@ import {
   Button,
   InputNumber,
   Divider,
+  notification,
 } from "antd";
 
 import MaterialAddViewModel from "./MaterialAddViewModel";
@@ -15,11 +16,25 @@ const { Title } = Typography;
 
 const MaterialAddListView: React.FC = () => {
   const materialAddViewModel = new MaterialAddViewModel();
+  const [api, contextHolder] = notification.useNotification();
+  
+  const openNotificationWithIcon = () => {
+
+    materialAddViewModel.saveMaterial();
+
+    api["success"]({
+      message: "A sua lista de materias foram salvas com sucesso!",
+      description:
+        "Para verificar sua lista, acesse no navbar a opção 'Listar'",
+    });
+  };
 
   // TODO: Add form component
 
   return (
     <>
+      {contextHolder}
+
       <Row justify="center">
         <Title>Adicione seus gastos com a construção</Title>
       </Row>
@@ -64,10 +79,7 @@ const MaterialAddListView: React.FC = () => {
 
       <Row justify="space-around" gutter={[40, 40]} align="bottom">
         <Col>
-          <Button
-            type="primary"
-            onClick={() => materialAddViewModel.saveMaterial()}
-          >
+          <Button type="primary" onClick={() => openNotificationWithIcon()}>
             Salvar
           </Button>
         </Col>
