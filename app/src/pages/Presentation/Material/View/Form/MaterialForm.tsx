@@ -9,26 +9,24 @@ import {
   Divider,
 } from "antd";
 
-import MaterialAddViewModel from "./MaterialAddViewModel";
+import MaterialFormViewModel from "./MaterialFormViewModel";
 
 const { Title } = Typography;
 
-const MaterialAddListView: React.FC = () => {
-  const materialAddViewModel = new MaterialAddViewModel();
-
-  // TODO: Add form component
+const MaterialForm: React.FC = () => {
+  const materialFormViewModel = new MaterialFormViewModel();
 
   return (
     <>
       <Row justify="center">
-        <Title>Adicione seus gastos com a construção</Title>
+        <Title>Edite o seu gasto</Title>
       </Row>
 
       <Row justify="center" gutter={[16, 16]}>
         <Col span={14}>
           <Title level={4}>Adicione o nome do produto:</Title>
           <Input
-            onChange={materialAddViewModel.onchangeProductName}
+            onChange={materialFormViewModel.onchangeProductName}
             size="large"
           />
         </Col>
@@ -38,7 +36,7 @@ const MaterialAddListView: React.FC = () => {
         <Col span={7}>
           <Title level={4}>Quantidade comprada:</Title>
           <InputNumber
-            onChange={materialAddViewModel.onchangeQuantityBought}
+            onChange={materialFormViewModel.onchangeQuantityBought}
             size="large"
             min={1}
             defaultValue={1}
@@ -49,7 +47,7 @@ const MaterialAddListView: React.FC = () => {
         <Col span={7}>
           <Title level={4}>Valor do produto (UND): </Title>
           <InputNumber<string>
-            onChange={materialAddViewModel.onchangePriceUnd}
+            onChange={materialFormViewModel.onchangePriceUnd}
             size="large"
             defaultValue="1"
             min="0"
@@ -59,21 +57,8 @@ const MaterialAddListView: React.FC = () => {
           />
         </Col>
       </Row>
-
-      <Divider orientation="center"></Divider>
-
-      <Row justify="space-around" gutter={[40, 40]} align="bottom">
-        <Col>
-          <Button
-            type="primary"
-            onClick={() => materialAddViewModel.saveMaterial()}
-          >
-            Salvar
-          </Button>
-        </Col>
-      </Row>
     </>
   );
 };
 
-export default MaterialAddListView;
+export default MaterialForm;
