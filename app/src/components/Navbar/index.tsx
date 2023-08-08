@@ -20,10 +20,6 @@ const Navbar: React.FC = () => {
       key: "/apresentacao",
     },
     {
-      label: "Contato",
-      key: "/contato",
-    },
-    {
       label: "Inserir",
       key: "/adicionar-lista",
     },
@@ -45,8 +41,8 @@ const Navbar: React.FC = () => {
       setCurrent(atualLink);
     } else {
       setCurrent("/apresentacao");
-    } 
-  }, []);
+    }
+  }, [setCurrent]);
 
   return (
     <Header style={{ display: "flex", alignItems: "center" }}>
