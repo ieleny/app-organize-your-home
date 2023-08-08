@@ -1,6 +1,6 @@
-import { MaterialModel } from "src/pages/Presentation/Material/Model/MaterialModel";
+import { MaterialModel } from "src/pages/Data/Model/MaterialModel";
 import { MaterialType } from "src/types/material";
-import { MaterialController } from "src/pages/Presentation/Material/Store/MaterialController";
+import { MaterialController } from "src/pages/Data/Store/MaterialController";
 
 export default class MaterialAddViewModel {
   private materialModel = new MaterialModel();
