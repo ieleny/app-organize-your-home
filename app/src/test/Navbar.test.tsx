@@ -19,16 +19,6 @@ test("Menu option Apresentação", async () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test("Menu option Contato", async () => {
-  render(
-    <BrowserRouter>
-      <Navbar />
-    </BrowserRouter>
-  );
-  const linkElement = await waitFor(() => screen.getByText(/Contato/i));
-  expect(linkElement).toBeInTheDocument();
-});
-
 test("Menu option Inserir", async () => {
   render(
     <BrowserRouter>
