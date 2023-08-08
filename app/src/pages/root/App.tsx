@@ -5,6 +5,7 @@ import "./App.css";
 import ManagementSystem from "src/pages/Layout/ManagementSystem";
 import MaterialAddListView from "src/pages/Presentation/Material/View/Add/MaterialAddView";
 import MaterialListView from "src/pages/Presentation/Material/View/List/MaterialListView";
+import MaterialEditListView from "../Presentation/Material/View/Edit/MaterialEditView";
 
 function App() {
   return (
@@ -15,11 +16,15 @@ function App() {
             <Route
               path="apresentacao"
               index
-              element={<MaterialAddListView />}
+              element={
+                <center>
+                  <h1>APRESENTAÇÃO</h1>
+                </center>
+              }
             />
             <Route path="adicionar-lista" element={<MaterialAddListView />} />
-            <Route path="contato" element={<MaterialAddListView />} />
             <Route path="lista" element={<MaterialListView />} />
+            <Route path="editar" element={<MaterialEditListView />} />
           </Route>
         </Routes>
       </BrowserRouter>
