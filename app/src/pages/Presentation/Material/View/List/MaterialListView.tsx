@@ -1,9 +1,9 @@
 import React from "react";
-import { Typography, Table, Row, Col, Space } from "antd";
+import { Typography, Table, Row, Col, Space, Button } from "antd";
 import type { ColumnsType } from "antd/es/table";
 
 import MaterialListViewModel from "./MaterialListViewModel";
-import { IMaterial } from "src/interface/materialInterface";
+import { IMaterial } from "src/interface/material";
 
 const { Title } = Typography;
 
@@ -32,8 +32,10 @@ const MaterialListView: React.FC = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a>Editar</a>
-          <a>Delete</a>
+          <Button type="primary">Editar</Button>
+          <Button type="primary" danger>
+            Delete
+          </Button>
         </Space>
       ),
     },
