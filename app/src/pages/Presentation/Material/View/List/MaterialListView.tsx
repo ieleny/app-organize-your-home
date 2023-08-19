@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Typography, Table, Row, Col, Space, Button } from "antd";
 import type { ColumnsType } from "antd/es/table";
 
+import { EDIT_ROUTER } from "src/constants/routers";
 import MaterialListViewModel from "./MaterialListViewModel";
 import { IMaterial } from "src/interface/material";
 
@@ -10,6 +12,7 @@ const { Title } = Typography;
 const MaterialListView: React.FC = () => {
 
   const materialListViewModel = new MaterialListViewModel();
+  const navigate = useNavigate();
 
   const columns: ColumnsType<IMaterial> = [
     {
@@ -32,7 +35,9 @@ const MaterialListView: React.FC = () => {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <Button type="primary">Editar</Button>
+          <Button type="primary" onClick={() => navigateEdit(record.key)}>
+            Editar
+          </Button>
           <Button type="primary" danger>
             Delete
           </Button>
@@ -40,6 +45,10 @@ const MaterialListView: React.FC = () => {
       ),
     },
   ];
+
+  const navigateEdit = (materialId: number) => {
+    navigate(`${EDIT_ROUTER}/${materialId}`);
+  }
 
   return (
     <>
