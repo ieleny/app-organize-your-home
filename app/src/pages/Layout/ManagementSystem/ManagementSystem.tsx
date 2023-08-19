@@ -7,13 +7,15 @@ const { Content, Footer } = Layout;
 
 const ManagementSystem: React.FC = () => {
   const {
-      token: { colorBgContainer },
+    token: { colorBgContainer },
   } = theme.useToken();
   const navigate = useNavigate();
-  let location = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === '/') {
+    const pathName = location.pathname;
+
+    if (pathName === "/") {
       navigate("/adicionar-lista");
       navigate("/lista");
     }

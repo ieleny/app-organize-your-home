@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const atualLink = window.location.pathname;
 
-    if (atualLink) {
+    if (atualLink !== undefined) {
       setCurrent(atualLink);
     } else {
       setCurrent("/apresentacao");
