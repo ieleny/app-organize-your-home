@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { Layout, theme } from "antd";
-import { Outlet, useNavigate,useLocation  } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
+
+import { ADD_LIST_ROUTER } from "src/constants/routers";
 import Navbar from "src/components/Navbar";
 
 const { Content, Footer } = Layout;
@@ -16,8 +18,7 @@ const ManagementSystem: React.FC = () => {
     const pathName = location.pathname;
 
     if (pathName === "/") {
-      navigate("/adicionar-lista");
-      navigate("/lista");
+      navigate(ADD_LIST_ROUTER);
     }
   }, [navigate, location]);
 

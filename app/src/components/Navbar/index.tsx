@@ -5,6 +5,11 @@ import type { MenuProps } from "antd";
 import { Typography } from "antd";
 
 import logo from "src/assets/logo.svg";
+import {
+  LIST_ROUTER,
+  ADD_LIST_ROUTER,
+  PRESENTATION_ROUTER,
+} from "src/constants/routers";
 
 const { Title } = Typography;
 const { Header } = Layout;
@@ -17,15 +22,15 @@ const Navbar: React.FC = () => {
   const navBarMenu: MenuProps["items"] = [
     {
       label: "Apresentação",
-      key: "/apresentacao",
+      key: PRESENTATION_ROUTER,
     },
     {
       label: "Inserir",
-      key: "/adicionar-lista",
+      key: ADD_LIST_ROUTER,
     },
     {
       label: "Listar",
-      key: "/lista",
+      key: LIST_ROUTER,
     },
   ];
   
@@ -40,7 +45,7 @@ const Navbar: React.FC = () => {
     if (atualLink !== undefined) {
       setCurrent(atualLink);
     } else {
-      setCurrent("/apresentacao");
+      setCurrent(PRESENTATION_ROUTER);
     }
   }, [setCurrent]);
 

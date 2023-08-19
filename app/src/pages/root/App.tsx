@@ -2,10 +2,17 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { ConfigProvider } from "antd";
 import ptBr from "antd/locale/pt_BR";
 import "./App.css";
+
 import ManagementSystem from "src/pages/Layout/ManagementSystem";
 import MaterialAddListView from "src/pages/Presentation/Material/View/Add/MaterialAddView";
 import MaterialListView from "src/pages/Presentation/Material/View/List/MaterialListView";
 import MaterialEditListView from "../Presentation/Material/View/Edit/MaterialEditView";
+import {
+  LIST_ROUTER,
+  ADD_LIST_ROUTER,
+  PRESENTATION_ROUTER,
+  EDIT_ROUTER,
+} from "src/constants/routers";
 
 function App() {
   return (
@@ -14,7 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<ManagementSystem />}>
             <Route
-              path="apresentacao"
+              path={PRESENTATION_ROUTER}
               index
               element={
                 <center>
@@ -22,9 +29,9 @@ function App() {
                 </center>
               }
             />
-            <Route path="adicionar-lista" element={<MaterialAddListView />} />
-            <Route path="lista" element={<MaterialListView />} />
-            <Route path="editar" element={<MaterialEditListView />} />
+            <Route path={ADD_LIST_ROUTER} element={<MaterialAddListView />} />
+            <Route path={LIST_ROUTER} element={<MaterialListView />} />
+            <Route path={EDIT_ROUTER} element={<MaterialEditListView />} />
           </Route>
         </Routes>
       </BrowserRouter>
