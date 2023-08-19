@@ -7,6 +7,7 @@ Application to help organize what do you need buy for your home
 - React
 - Typescript
 - Jotai
+- Lint
 
 # Execute docker build
 
@@ -40,3 +41,30 @@ Manegement state, documentation: https://jotai.org/docs/core/store
 # Diagram states
 
 # Diagram class
+
+# Eslint
+
+Eslint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
+
+To organize the project and the code, and when the other people make changes to the code, this project uses the .eslintrc.json file to manage the code styles.
+
+If you want to continue with patterns, this part of the readme will explain how to configure VSCode to use ESLint.
+
+## 1. Install VSCode ESLint Plugin
+In VSCode, open the extension browser using the button on the left. Search for eslint and install the top result, called “ESLint”.
+
+## 2. Configure VSCode settings to use ESLint for formatting
+
+Open VSCode settings or enter a settings.json file in the .vscode folder and paste these 4 new lines into the top settings object:
+
+```
+{
+ "eslint.format.enable": true,
+ "editor.codeActionsOnSave": {
+ "source.fixAll.eslint": true
+ }
+}
+
+```
+
+The first one turns on ESLint for formatting, and the next 3 make sure that formatting is done on save. That should do it! Save the settings file and close it, we are done.
