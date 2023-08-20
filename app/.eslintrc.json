@@ -4,11 +4,10 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "react-app",
-    "react-app/jest",
-    "tsconfig.json"
+    "react-app/jest"
   ],
   "parser": "@typescript-eslint/parser",
-  "parserOptions": { "project": ["tsconfig.json"] },
+  "parserOptions": { "project": ["tsconfig.json"], "tsconfigRootDir": "app", "sourceType": "module" },
   "plugins": ["@typescript-eslint"],
   "rules": {
     "@typescript-eslint/strict-boolean-expressions": [
