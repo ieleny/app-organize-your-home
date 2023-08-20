@@ -38,7 +38,11 @@ const MaterialListView: React.FC = () => {
           <Button type="primary" onClick={() => actionEdit(record.key)}>
             Editar
           </Button>
-          <Button type="primary" danger onClick={() => actionDelete()}>
+          <Button
+            type="primary"
+            danger
+            onClick={() => actionDelete(record.key)}
+          >
             Delete
           </Button>
         </Space>
@@ -50,8 +54,10 @@ const MaterialListView: React.FC = () => {
     navigate(`${EDIT_ROUTER}/${materialId}`);
   };
 
-  const actionDelete = () => {
+  const actionDelete = (materialId: number) => {
     //??
+
+    console.log("materialId", materialId);
   };
 
   return (
