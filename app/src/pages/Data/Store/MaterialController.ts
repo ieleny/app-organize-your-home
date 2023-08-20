@@ -1,5 +1,5 @@
 import { MaterialType } from "src/types/material";
-import { IMaterial } from "src/interface/material";
+import { IMaterial } from "src/interface/IMaterial";
 import { MateriaisAtom, store } from "./MateriasStore";
 
 // dependency inversion
