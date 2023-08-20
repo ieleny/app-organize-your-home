@@ -4,14 +4,19 @@ import { MateriaisAtom, store } from "./MateriasStore";
 
 // dependency inversion
 export class MaterialController {
-  
   public addMaterial({ materiais }: MaterialType) {
-
     const arrayMaterials: IMaterial[] = [
       ...store.get(MateriaisAtom),
       materiais,
     ];
 
+    store.set(MateriaisAtom, arrayMaterials);
+  }
+
+  public editMaterial({ materiais }: MaterialType) {
+    const materiaisUpdate = this.updateMaterial({ materiais });
+    const arrayMaterials: IMaterial[] = [...materiaisUpdate];
+    
     store.set(MateriaisAtom, arrayMaterials);
   }
 
@@ -23,4 +28,18 @@ export class MaterialController {
     return store.get(MateriaisAtom).length;
   }
 
+  public listMaterialId(key: number) {
+    return store.get(MateriaisAtom).find((material) => material.key === key);
+  }
+
+  public updateMaterial({ materiais }: MaterialType) {
+    return store.get(MateriaisAtom).map(
+      (material) => {
+        if (material.key === materiais.key) {
+          return materiais;
+        }
+
+        return material;
+      } );
+  }
 }
