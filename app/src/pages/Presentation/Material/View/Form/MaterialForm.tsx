@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   Typography,
   Row,
@@ -11,26 +11,53 @@ import {
 } from "antd";
 
 import MaterialFormViewModel from "./MaterialFormViewModel";
-import IStrategy from "src/strategy/IStrategy";
+import { useParams } from "react-router-dom";
 
 const { Title } = Typography;
 
-type MaterialFormProps = {
-  materialViewModel: IStrategy;
-};
-
-const MaterialForm: React.FC<MaterialFormProps> = ({ materialViewModel }) => {
-  const materialFormViewModel = new MaterialFormViewModel();
-
+const materialFormViewModel = new MaterialFormViewModel();
+  
+const MaterialForm: React.FC = () => {
+  const params = useParams();
+  
   const [api, contextHolder] = notification.useNotification();
 
-  const openNotificationWithIcon = () => {
-    materialFormViewModel.saveMaterial(materialViewModel);
+  const inputProductName = useRef<any>();
+  const inputQuantityBought = useRef<any>();
+  const inputPriceUnd = useRef<any>();
 
+  const fillFields = useCallback(() => {
+    const key = Number(params.id);
+    const material = materialFormViewModel.searchMaterialById(key);
+
+    if (material) {
+      inputProductName.current.input.value = material?.productName;
+      inputQuantityBought.current.value = material?.quantityBought;
+      inputPriceUnd.current.value = material?.priceUnd;
+    } 
+  }, [params.id]);
+
+  useEffect(() => {
+    if (params?.id !== undefined) {
+      fillFields();
+    }
+  }, [fillFields, params.id]);
+
+  const saveRequest = () => {
+    const key = params.id !== undefined ? Number(params.id) : undefined;
+
+    try {
+      materialFormViewModel.saveRequest(key);
+      openNotificationWithIcon();
+    } catch (error) {
+      console.warn(error);
+    }
+  };
+
+  const openNotificationWithIcon = () => {
     api["success"]({
       message: "A sua lista de materias foram salvas com sucesso!",
-      description:
-        "Para verificar sua lista, acesse no navbar a opção 'Listar'",
+      description:"Para verificar sua lista, acesse no navbar a opção 'Listar'",
     });
   };
 
@@ -42,6 +69,8 @@ const MaterialForm: React.FC<MaterialFormProps> = ({ materialViewModel }) => {
         <Col span={14}>
           <Title level={4}>Nome do produto:</Title>
           <Input
+            ref={inputProductName}
+            name="productName"
             onChange={materialFormViewModel.onchangeProductName}
             size="large"
           />
@@ -52,6 +81,7 @@ const MaterialForm: React.FC<MaterialFormProps> = ({ materialViewModel }) => {
         <Col span={7}>
           <Title level={4}>Quantidade comprada:</Title>
           <InputNumber
+            ref={inputQuantityBought}
             onChange={materialFormViewModel.onchangeQuantityBought}
             size="large"
             min={1}
@@ -63,6 +93,7 @@ const MaterialForm: React.FC<MaterialFormProps> = ({ materialViewModel }) => {
         <Col span={7}>
           <Title level={4}>Valor do produto (UND): </Title>
           <InputNumber<string>
+            ref={inputPriceUnd}
             onChange={materialFormViewModel.onchangePriceUnd}
             size="large"
             defaultValue="1"
@@ -78,7 +109,7 @@ const MaterialForm: React.FC<MaterialFormProps> = ({ materialViewModel }) => {
 
       <Row justify="space-around" gutter={[40, 40]} align="bottom">
         <Col>
-          <Button type="primary" onClick={() => openNotificationWithIcon()}>
+          <Button type="primary" onClick={() => saveRequest()}>
             Salvar
           </Button>
         </Col>
