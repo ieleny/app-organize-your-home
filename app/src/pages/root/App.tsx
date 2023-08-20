@@ -11,7 +11,7 @@ import {
   LIST_ROUTER,
   ADD_LIST_ROUTER,
   PRESENTATION_ROUTER,
-  EDIT_ROUTER,
+  EDIT_ROUTER_ID,
 } from "src/constants/routers";
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
             />
             <Route path={ADD_LIST_ROUTER} element={<MaterialAddListView />} />
             <Route path={LIST_ROUTER} element={<MaterialListView />} />
-            <Route path={EDIT_ROUTER} element={<MaterialEditListView />} />
+            <Route path={EDIT_ROUTER_ID} element={<MaterialEditListView />} />
           </Route>
         </Routes>
       </BrowserRouter>
