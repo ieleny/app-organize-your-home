@@ -5,25 +5,42 @@ import {
   Input,
   Col,
   InputNumber,
+  Button,
+  notification,
   Divider,
 } from "antd";
 
 import MaterialFormViewModel from "./MaterialFormViewModel";
+import IStrategy from "src/strategy/IStrategy";
 
 const { Title } = Typography;
 
-const MaterialForm: React.FC = () => {
+type MaterialFormProps = {
+  materialViewModel: IStrategy;
+};
+
+const MaterialForm: React.FC<MaterialFormProps> = ({ materialViewModel }) => {
   const materialFormViewModel = new MaterialFormViewModel();
+
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotificationWithIcon = () => {
+    materialFormViewModel.saveMaterial(materialViewModel);
+
+    api["success"]({
+      message: "A sua lista de materias foram salvas com sucesso!",
+      description:
+        "Para verificar sua lista, acesse no navbar a opção 'Listar'",
+    });
+  };
 
   return (
     <>
-      <Row justify="center">
-        <Title>Edite o seu gasto</Title>
-      </Row>
+      {contextHolder}
 
       <Row justify="center" gutter={[16, 16]}>
         <Col span={14}>
-          <Title level={4}>Adicione o nome do produto:</Title>
+          <Title level={4}>Nome do produto:</Title>
           <Input
             onChange={materialFormViewModel.onchangeProductName}
             size="large"
@@ -54,6 +71,16 @@ const MaterialForm: React.FC = () => {
             stringMode
             style={{ width: "100%" }}
           />
+        </Col>
+      </Row>
+
+      <Divider orientation="center"></Divider>
+
+      <Row justify="space-around" gutter={[40, 40]} align="bottom">
+        <Col>
+          <Button type="primary" onClick={() => openNotificationWithIcon()}>
+            Salvar
+          </Button>
         </Col>
       </Row>
     </>
