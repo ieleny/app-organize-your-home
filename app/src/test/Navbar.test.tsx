@@ -1,15 +1,41 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Navbar from '../pages/Presentation/Navbar';
+import { render, screen, waitFor } from "@testing-library/react";
+import { BrowserRouter } from 'react-router-dom';
+import Navbar from 'src/components/Navbar';
 
-test('Menu option Apresentação', () => {
-  render(<Navbar />);
-  const linkElement = screen.getByText(/Apresentação/i);
+const mockedUsedNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
+  ...(jest.requireActual("react-router-dom") as any),
+  useNavigate: () => mockedUsedNavigate,
+}));
+
+test("Menu option Apresentação", async () => {
+  render(
+    <BrowserRouter>
+      <Navbar />
+    </BrowserRouter>
+  );
+
+  const linkElement = await waitFor(() => screen.getByText(/Apresentação/i));
   expect(linkElement).toBeInTheDocument();
 });
 
-test("Menu option Contato", () => {
-  render(<Navbar />);
-  const linkElement = screen.getByText(/Contato/i);
+test("Menu option Inserir", async () => {
+  render(
+    <BrowserRouter>
+      <Navbar />
+    </BrowserRouter>
+  );
+
+  const linkElement = await waitFor(() => screen.getByText(/Inserir/i));
+  expect(linkElement).toBeInTheDocument();
+});
+
+test("Menu option Listar", async () => {
+  render(
+    <BrowserRouter>
+      <Navbar />
+    </BrowserRouter>
+  );
+  const linkElement = await waitFor(() => screen.getByText(/Listar/i));
   expect(linkElement).toBeInTheDocument();
 });

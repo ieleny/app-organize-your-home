@@ -1,35 +1,53 @@
-import React, { useState } from "react";
-
-import logo from "../../../assets/logo.svg";
-
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import type { MenuProps } from "antd";
 import { Typography } from "antd";
 
+import logo from "src/assets/logo.svg";
+import {
+  LIST_ROUTER,
+  ADD_LIST_ROUTER,
+  PRESENTATION_ROUTER,
+} from "src/constants/routers";
+
 const { Title } = Typography;
 const { Header } = Layout;
 
-
 const Navbar: React.FC = () => {
   
-  const [current, setCurrent] = useState("apresentacao");
+  const navigate = useNavigate();
+  const [current, setCurrent] = useState<string>("");
 
-  const navBarMenu: MenuProps["items"] = 
-  [
+  const navBarMenu: MenuProps["items"] = [
     {
       label: "Apresentação",
-      key: "apresentacao",
+      key: PRESENTATION_ROUTER,
     },
     {
-      label: "Contato",
-      key: "contato",
+      label: "Inserir",
+      key: ADD_LIST_ROUTER,
+    },
+    {
+      label: "Listar",
+      key: LIST_ROUTER,
     },
   ];
   
   const onClick: MenuProps["onClick"] = (e) => {
-    console.log("click ", e);
     setCurrent(e.key);
+    navigate(e.key);
   };
+
+  useEffect(() => {
+    const atualLink = window.location.pathname;
+
+    if (atualLink !== undefined) {
+      setCurrent(atualLink);
+    } else {
+      setCurrent(PRESENTATION_ROUTER);
+    }
+  }, [setCurrent]);
 
   return (
     <Header style={{ display: "flex", alignItems: "center" }}>

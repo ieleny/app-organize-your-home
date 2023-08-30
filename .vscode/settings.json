@@ -1,3 +1,12 @@
 {
-    "editor.fontSize": 18
+  "editor.fontSize": 18,
+  "eslint.format.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": [
+    "typescript",
+    "typescriptreact"
+  ],
 }
