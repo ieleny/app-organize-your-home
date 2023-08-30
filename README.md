@@ -1,7 +1,9 @@
-# organize-your-home
+# Organize your home
+
 Application to help organize what do you need buy for your home
 
 # Tecnologies
+
 - node:18-alpine
 - Ant Design: https://ant.design/components/overview/
 - React
@@ -12,6 +14,7 @@ Application to help organize what do you need buy for your home
 # Execute docker build
 
 Inside the docker folder execute command:
+
 ```
 	docker compose up
 ```
@@ -21,6 +24,7 @@ Inside the docker folder execute command:
 # Description
 
 ## Links
+
 - https://learn.microsoft.com/pt-br/windows/uwp/data-binding/data-binding-and-mvvm
 - https://github.com/RaresAil/cra-template-typescript-mvvm
 - https://www.tutorialspoint.com/mvvm/mvvm_responsibilities.htm#:%7E:text=ViewModel%20Responsibilities,data%20and%20change%20the%20data
@@ -32,6 +36,7 @@ Inside the docker folder execute command:
 Manegement state, documentation: https://jotai.org/docs/core/store
 
 # Links
+
 - https://dev.to/franciscomendes10866/jotai-state-manager-5c07
 - https://www.youtube.com/watch?v=yJeamGjFNqQ&ab_channel=CoderOne
 - https://www.youtube.com/watch?v=gg31JTZmFUw&ab_channel=JackHerrington
@@ -51,6 +56,7 @@ To organize the project and the code, and when the other people make changes to 
 If you want to continue with patterns, this part of the readme will explain how to configure VSCode to use ESLint.
 
 ## 1. Install VSCode ESLint Plugin
+
 In VSCode, open the extension browser using the button on the left. Search for eslint and install the top result, called “ESLint”.
 
 ## 2. Configure VSCode settings to use ESLint for formatting
