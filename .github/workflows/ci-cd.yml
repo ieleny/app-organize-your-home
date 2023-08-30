@@ -27,7 +27,7 @@ jobs:
           cache: "npm"
           cache-dependency-path: ./app/package-lock.json
       - run: ls -la
-      - run: cd ./app/package-lock.json && npm ci
+      - run: cd ./app && npm ci
       - run: cd ./app && npm install
       - run: npm run build --if-present
       - run: npm test
