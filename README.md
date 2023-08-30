@@ -74,3 +74,21 @@ Open VSCode settings or enter a settings.json file in the .vscode folder and pas
 ```
 
 The first one turns on ESLint for formatting, and the next 3 make sure that formatting is done on save. That should do it! Save the settings file and close it, we are done.
+
+# GITHUB ACTIONS
+
+# Deploy applicatin in gh-pages
+
+1 - Install gh-pages in react project.
+
+```
+	npm install gh-pages --save-dev
+```
+
+2 - Create gh-pages in github site, in you repository
+3 - Add "homepage" in package.json repository, inside "homepage" will be the site create in ghpages.
+4 - Add in package.json this script:
+
+```
+	"deploy": "gh-pages -d build"
+```
