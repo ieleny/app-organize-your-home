@@ -15,7 +15,7 @@ test("Menu option Apresentação", async () => {
     </BrowserRouter>
   );
 
-  const linkElement = await waitFor(() => screen.getByText(/Apresentação/i));
+  const linkElement = await screen.findByText(/Apresentação/i);
   expect(linkElement).toBeInTheDocument();
 });
 
@@ -26,7 +26,7 @@ test("Menu option Inserir", async () => {
     </BrowserRouter>
   );
 
-  const linkElement = await waitFor(() => screen.getByText(/Inserir/i));
+  const linkElement = await screen.findByText(/Inserir/i);
   expect(linkElement).toBeInTheDocument();
 });
 
@@ -36,6 +36,6 @@ test("Menu option Listar", async () => {
       <Navbar />
     </BrowserRouter>
   );
-  const linkElement = await waitFor(() => screen.getByText(/Listar/i));
+  const linkElement = await screen.findByText(/Listar/i);
   expect(linkElement).toBeInTheDocument();
 });
