@@ -2,7 +2,7 @@ import { MaterialModel } from "src/pages/Data/Model/MaterialModel";
 import { MaterialController } from "src/pages/Data/Store/MaterialController";
 import { IMaterialSave } from "src/interface/IMaterialSave";
 
-export default class SaveMaterialService {
+export default class MaterialService {
   private materialModel = new MaterialModel();
   private materialController = new MaterialController();
 
@@ -36,4 +36,8 @@ export default class SaveMaterialService {
       materiais: { key: key ?? 0, quantityBought, productName, priceUnd },
     });
   };
+
+  public delete = (key: number) =>{
+    this.materialController.deleteMaterial(key);
+  }
 }

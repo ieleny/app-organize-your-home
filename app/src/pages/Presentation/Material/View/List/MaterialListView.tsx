@@ -6,6 +6,7 @@ import type { ColumnsType } from "antd/es/table";
 import { EDIT_ROUTER } from "src/constants/routers";
 import MaterialListViewModel from "./MaterialListViewModel";
 import { IMaterial } from "src/interface/IMaterial";
+import Delete from "src/pages/Presentation/Material/View/Delete/MaterialDelete";
 
 const { Title } = Typography;
 
@@ -38,13 +39,7 @@ const MaterialListView: React.FC = () => {
           <Button type="primary" onClick={() => actionEdit(record.key)}>
             Editar
           </Button>
-          <Button
-            type="primary"
-            danger
-            onClick={() => actionDelete(record.key)}
-          >
-            Delete
-          </Button>
+          <Delete materialId={record.key} />
         </Space>
       ),
     },
@@ -54,18 +49,12 @@ const MaterialListView: React.FC = () => {
     navigate(`${EDIT_ROUTER}/${materialId}`);
   };
 
-  const actionDelete = (materialId: number) => {
-    //??
-
-    console.log("materialId", materialId);
-  };
-
   return (
     <>
       <Row justify="center">
         <Title>Lista dos seus gastos</Title>
       </Row>
-
+      
       <Row justify="center">
         <Col span={14}>
           <Table

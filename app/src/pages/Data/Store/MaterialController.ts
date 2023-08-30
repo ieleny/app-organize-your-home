@@ -16,7 +16,7 @@ export class MaterialController {
   public editMaterial({ materiais }: MaterialType) {
     const materiaisUpdate = this.updateMaterial({ materiais });
     const arrayMaterials: IMaterial[] = [...materiaisUpdate];
-    
+
     store.set(MateriaisAtom, arrayMaterials);
   }
 
@@ -33,13 +33,20 @@ export class MaterialController {
   }
 
   public updateMaterial({ materiais }: MaterialType) {
-    return store.get(MateriaisAtom).map(
-      (material) => {
-        if (material.key === materiais.key) {
-          return materiais;
-        }
+    return store.get(MateriaisAtom).map((material) => {
+      if (material.key === materiais.key) {
+        return materiais;
+      }
 
-        return material;
-      } );
+      return material;
+    });
+  }
+
+  public deleteMaterial(key: number) {
+    const newMaterial = store
+      .get(MateriaisAtom)
+      .filter((material) => material.key !== key);
+    
+    store.set(MateriaisAtom, newMaterial);
   }
 }
