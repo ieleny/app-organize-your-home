@@ -79,15 +79,15 @@ The first one turns on ESLint for formatting, and the next 3 make sure that form
 
 # Deploy applicatin in gh-pages
 
-1 - Install gh-pages in react project.
+- Install gh-pages in react project.
 
 ```
 	npm install gh-pages --save-dev
 ```
 
-2 - Create gh-pages in github site, in you repository
-3 - Add "homepage" in package.json repository, inside "homepage" will be the site create in ghpages.
-4 - Add in package.json this script:
+- Create gh-pages in github site, in you repository
+- Add "homepage" in package.json repository, inside "homepage" will be the site create in ghpages.
+- Add in package.json this script:
 
 ```
 	"deploy": "gh-pages -d build"
@@ -95,6 +95,6 @@ The first one turns on ESLint for formatting, and the next 3 make sure that form
 
 # CI/CD
 
-1 - Inside in you repository, click in tab the option "Action", and search the pipeline call NodeJs, create in branch main.
-2 - When you do, the github create a folder call .github inside has a anoter folder call Worflows, in this folder has .yml file with ci cd rules.
-3 - If you want, you can add extension in vscode call GitHub Actions, to help the with the process.
+- Inside in you repository, click in tab the option "Action", and search the pipeline call NodeJs, create in branch main.
+- When you do, the github create a folder call .github inside has a anoter folder call Worflows, in this folder has .yml file with ci cd rules.
+- If you want, you can add extension in vscode call GitHub Actions, to help the with the process.
