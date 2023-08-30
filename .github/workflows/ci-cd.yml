@@ -26,8 +26,12 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
           cache-dependency-path: ./app/package-lock.json
-      - run: cd ./app && npm ci && npm install && npm run build --if-present
-      - run: cd ./app && npm test && npm run start && npm run deploy
+      - run: cd ./app && npm ci 
+      - run: cd ./app && npm install && npm run build --if-present
+      - run: cd ./app && npm run build --if-present
+      - run: cd ./app && npm test
+      - run: cd ./app && npm run start && npm run deploy
+      - run: cd ./app && npm run deploy
 
       - name: Deploy with gh-pages
         run: |
