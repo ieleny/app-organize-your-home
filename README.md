@@ -92,3 +92,9 @@ The first one turns on ESLint for formatting, and the next 3 make sure that form
 ```
 	"deploy": "gh-pages -d build"
 ```
+
+# CI/CD
+
+1 - Inside in you repository, click in tab the option "Action", and search the pipeline call NodeJs, create in branch main.
+2 - When you do, the github create a folder call .github inside has a anoter folder call Worflows, in this folder has .yml file with ci cd rules.
+3 - If you want, you can add extension in vscode call GitHub Actions, to help the with the process.
