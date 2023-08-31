@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import { ConfigProvider } from "antd";
 import ptBr from "antd/locale/pt_BR";
 import "./App.css";
@@ -17,7 +17,7 @@ import {
 function App() {
   return (
     <ConfigProvider locale={ptBr}>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<ManagementSystem />}>
             <Route
@@ -34,7 +34,7 @@ function App() {
             <Route path={EDIT_ROUTER_ID} element={<MaterialEditListView />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </ConfigProvider>
   );
 }
