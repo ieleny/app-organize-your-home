@@ -1,6 +1,6 @@
 {
   "name": "app-organize-your-home",
-  "homepage": "https://ieleny.github.io/app-organize-home",
+  "homepage": "https://ieleny.github.io/app-organize-home/lista",
   "version": "0.1.0",
   "description": "Application to help organize what do you need buy for your home",
   "author": "ielenyfilgueira@hotmail.com",
@@ -29,6 +29,7 @@
     "jotai": "^2.2.2"
   },
   "scripts": {
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",

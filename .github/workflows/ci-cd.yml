@@ -33,11 +33,11 @@ jobs:
       - name: 🖼️ Install
         run: cd ./app && npm install
       
-      - name: 💻 Build
-        run: cd ./app && npm run build --if-present
-      
       - name: 📈 Test
         run: cd ./app && npm test
+
+      - name: 💻 Build
+        run: cd ./app && npm run predeploy
 
       - name: 🚀 Deploy with gh-pages
         run: |
