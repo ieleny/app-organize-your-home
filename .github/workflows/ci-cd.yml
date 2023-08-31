@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -26,16 +26,22 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
           cache-dependency-path: ./app/package-lock.json
-      - run: cd ./app && npm ci 
-      - run: cd ./app && npm install && npm run build --if-present
-      - run: cd ./app && npm run build --if-present
-      - run: cd ./app && npm test
-      - run: cd ./app && npm run start && npm run deploy
-      - run: cd ./app && npm run deploy
+      
+      - name: 👩‍💻 CI
+        run: cd ./app && npm ci
+      
+      - name: 🖼️ Install
+        run: cd ./app && npm install
+      
+      - name: 💻 Build
+        run: cd ./app && npm run build --if-present
+      
+      - name: 📈 Test
+        run: cd ./app && npm test
 
-      - name: Deploy with gh-pages
+      - name: 🚀 Deploy with gh-pages
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+          cd ./app && npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

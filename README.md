@@ -76,8 +76,14 @@ Open VSCode settings or enter a settings.json file in the .vscode folder and pas
 The first one turns on ESLint for formatting, and the next 3 make sure that formatting is done on save. That should do it! Save the settings file and close it, we are done.
 
 # GITHUB ACTIONS
+## Description
+GitHub Actions is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
 
-# Deploy applicatin in gh-pages
+GitHub Actions goes beyond just DevOps and lets you run workflows when other events happen in your repository. For example, you can run a workflow to automatically add the appropriate labels whenever someone creates a new issue in your repository.
+
+GitHub provides Linux, Windows, and macOS virtual machines to run your workflows, or you can host your own self-hosted runners in your own data center or cloud infrastructure.
+
+## Deploy applicatin in gh-pages
 
 - Install gh-pages in react project.
 
@@ -93,7 +99,7 @@ The first one turns on ESLint for formatting, and the next 3 make sure that form
 	"deploy": "gh-pages -d build"
 ```
 
-# CI/CD
+## CI/CD
 
 - Inside in you repository, click in tab the option "Action", and search the pipeline call NodeJs, create in branch main.
 - When you do, the github create a folder call .github inside has a anoter folder call Worflows, in this folder has .yml file with ci cd rules.
