@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  nginx-node:
+    container_name: nginx-node
+    restart: always
+    build:
+      context: nginx-node
+      dockerfile: Dockerfile
+    volumes:
+      - /usr/src/app
+      - ${NGINX_HOST_LOG_PATH}:/app/log/nginx-node
+      - ${NGINX_SITES_PATH}:/etc/nginx-node/conf.d
+    ports:
+      - "${NGINX_HOST_HTTPS_PORT}:443"
+    links:
+      - nodejs
+    networks:
+      - app-network
+
+  nodejs:
+    build:
+      context: app
+      dockerfile: Dockerfile
+    container_name: nodejs
+    ports:
+      - "3000:3000"
+    volumes:
+      - app:/usr/src/app/
+      - node_modules:/usr/src/app/node_modules
+    networks:
+      - app-network
+
+volumes:
+  node_modules:
+  app: 
+
+networks:
+  app-network:
+    driver: bridge
