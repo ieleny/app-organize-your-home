@@ -18,6 +18,12 @@ Inside the docker folder execute command:
 ```
 	docker compose up
 ```
+# Test
+
+The project is coverage with tests, to run the test, inside the folder './app' execute command:
+```
+	npm run test
+```
 
 # Architeture - MVVM
 
@@ -74,6 +80,10 @@ Open VSCode settings or enter a settings.json file in the .vscode folder and pas
 ```
 
 The first one turns on ESLint for formatting, and the next 3 make sure that formatting is done on save. That should do it! Save the settings file and close it, we are done.
+
+## 3. Configure .eslintrc.js file
+
+If you want add other's rules in eslintrc, you need create eslintrc.js file. 
 
 # GITHUB ACTIONS
 ## Description
