@@ -33,7 +33,8 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test  --coverage --watchAll",
+    "test": "react-scripts test --coverage --watchAll",
+    "test:deploy": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
   },
   "browserslist": {
