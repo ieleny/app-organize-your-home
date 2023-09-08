@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Typography, Table, Row, Col, Space, Button } from "antd";
 import type { ColumnsType } from "antd/es/table";
@@ -14,6 +14,7 @@ const MaterialListView: React.FC = () => {
 
   const materialListViewModel = new MaterialListViewModel();
   const navigate = useNavigate();
+  const [key, setKey] = useState(0);
 
   const columns: ColumnsType<IMaterial> = [
     {
@@ -39,7 +40,7 @@ const MaterialListView: React.FC = () => {
           <Button type="primary" onClick={() => actionEdit(record.key)}>
             Editar
           </Button>
-          <Delete materialId={record.key} />
+          <Delete materialId={record.key} setKey={setKey} />
         </Space>
       ),
     },
@@ -54,8 +55,8 @@ const MaterialListView: React.FC = () => {
       <Row justify="center">
         <Title>Lista dos seus gastos</Title>
       </Row>
-      
-      <Row justify="center">
+
+      <Row justify="center" key={key}>
         <Col span={14}>
           <Table
             dataSource={materialListViewModel.listMaterial()}

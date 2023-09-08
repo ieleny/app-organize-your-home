@@ -10,4 +10,8 @@ export default class MaterialDeleteViewModel {
       console.warn(error);
     }
   }
+
+  listQuantity() {
+    return this.materialService.countMaterials();
+  }
 }
