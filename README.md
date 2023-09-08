@@ -2,6 +2,8 @@
 
 Application to help organize what do you need buy for your home
 
+Link to acess: https://ieleny.github.io/app-organize-your-home
+
 # Tecnologies
 
 - node:18-alpine
