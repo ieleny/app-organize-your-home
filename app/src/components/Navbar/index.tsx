@@ -8,7 +8,7 @@ const { Header } = Layout;
 const Navbar: React.FC = () => {
 
   return (
-    <Header style={{ backgroundColor: "#063970" }}>
+    <Header style={{ backgroundColor: "#031f3b" }}>
       <div>
         <Title
           style={{
