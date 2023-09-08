@@ -13,7 +13,7 @@ const { Sider } = Layout;
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const [current, setCurrent] = useState<string>("");
-  const navbarColor = "#082852";
+  const navbarColor = "#063970";
 
   const navBarMenu: MenuProps["items"] = [
     {
