@@ -8,14 +8,24 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedUsedNavigate,
 }));
 
-test("Sidebar", async () => {
+test("Sidebar option Inserir", async () => {
   render(
     <BrowserRouter>
       <SideBar />
     </BrowserRouter>
   );
 
-  const linkElement = await screen.findByText(/nav 1/i);
+  const linkElement = await screen.findByText(/Inserir/i);
   expect(linkElement).toBeInTheDocument();
 });
 
+
+test("Sidebar option Listar", async () => {
+  render(
+    <BrowserRouter>
+      <SideBar />
+    </BrowserRouter>
+  );
+  const linkElement = await screen.findByText(/Listar/i);
+  expect(linkElement).toBeInTheDocument();
+});

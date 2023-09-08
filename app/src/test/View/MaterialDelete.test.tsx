@@ -6,9 +6,12 @@ import { MaterialController } from "src/pages/Data/Store/MaterialController";
 
 describe("Component Material delete", () => {
   test("Is render Material delete", async () => {
+
+    const setKey = jest.fn();
+
     render(
       <BrowserRouter>
-        <Delete materialId={0} />
+        <Delete materialId={0} setKey={setKey} />
       </BrowserRouter>
     );
 
