@@ -1,50 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Layout, Menu } from "antd";
+import type { MenuProps } from "antd";
 import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+  LIST_ROUTER,
+  ADD_LIST_ROUTER,
+} from "src/constants/routers";
+import logo from "src/assets/logo.svg";
 
-import { Layout, Menu, Button, theme } from "antd";
-const { Header, Sider, Content } = Layout;
+const { Sider } = Layout;
 
-const Sidebar: React.FC = () => {
-  
-  const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+const Navbar: React.FC = () => {
+  const navigate = useNavigate();
+  const [current, setCurrent] = useState<string>("");
+  const navbarColor = "#082852";
+
+  const navBarMenu: MenuProps["items"] = [
+    {
+      label: "Inserir",
+      key: ADD_LIST_ROUTER,
+    },
+    {
+      label: "Listar",
+      key: LIST_ROUTER,
+    },
+  ];
+
+  const onClick: MenuProps["onClick"] = (e) => {
+    setCurrent(e.key);
+    navigate(e.key);
+  };
+
+  useEffect(() => {
+    const atualLink = window.location.pathname;
+
+    if (atualLink === '/') {
+      setCurrent(ADD_LIST_ROUTER);
+    } else {
+      setCurrent(atualLink);
+    }
+
+  }, [setCurrent]);
 
   return (
-    <Sider trigger={null} collapsible collapsed={collapsed}>
-      <div className="demo-logo-vertical" />
+    <Sider
+      breakpoint="lg"
+      collapsedWidth="0"
+      style={{ backgroundColor: navbarColor }}
+    >
+      <div>
+        <img src={logo} alt="logo atomico do react" />
+      </div>
+
       <Menu
+        style={{ minWidth: 0, flex: "auto", backgroundColor: navbarColor }}
         theme="dark"
+        onClick={onClick}
+        selectedKeys={[current]}
         mode="inline"
-        defaultSelectedKeys={["1"]}
-        items={[
-          {
-            key: "1",
-            icon: <UserOutlined />,
-            label: "nav 1",
-          },
-          {
-            key: "2",
-            icon: <VideoCameraOutlined />,
-            label: "nav 2",
-          },
-          {
-            key: "3",
-            icon: <UploadOutlined />,
-            label: "nav 3",
-          },
-        ]}
+        items={navBarMenu}
       />
     </Sider>
   );
-    
-}
-      
-export default Sidebar;
+};
+
+export default Navbar;
