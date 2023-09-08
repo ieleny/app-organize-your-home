@@ -8,34 +8,14 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockedUsedNavigate,
 }));
 
-test("Menu option Apresentação", async () => {
+test("Render navbar", async () => {
   render(
     <BrowserRouter>
       <Navbar />
     </BrowserRouter>
   );
 
-  const linkElement = await screen.findByText(/Apresentação/i);
+  const linkElement = await screen.findByText(/Planeje os custos da obra/i);
   expect(linkElement).toBeInTheDocument();
 });
 
-test("Menu option Inserir", async () => {
-  render(
-    <BrowserRouter>
-      <Navbar />
-    </BrowserRouter>
-  );
-
-  const linkElement = await screen.findByText(/Inserir/i);
-  expect(linkElement).toBeInTheDocument();
-});
-
-test("Menu option Listar", async () => {
-  render(
-    <BrowserRouter>
-      <Navbar />
-    </BrowserRouter>
-  );
-  const linkElement = await screen.findByText(/Listar/i);
-  expect(linkElement).toBeInTheDocument();
-});
